@@ -25,6 +25,7 @@ function _sumFibs(maxFibValue) {
 
 // bonus round
 function _highestFibonacciNumber(maxFibValue) {
+  //cannot test; appears to have an infinite loop somewhere but i cannot find where
   var highest = 0;
 
   return highest;
