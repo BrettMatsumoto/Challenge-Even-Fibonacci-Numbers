@@ -14,6 +14,7 @@ function _sumFibs(maxFibValue) {
   while (nextFib <= maxFibValue) {
     firstNumber = secondNumber;
     secondNumber = nextFib;
+    nextFib = firstNumber + secondNumber;
 
     if (nextFib % 2 === 0 && nextFib <= maxFibValue) {
       sum += nextFib;
@@ -25,9 +26,24 @@ function _sumFibs(maxFibValue) {
 
 // bonus round
 function _highestFibonacciNumber(maxFibValue) {
-  //cannot test; appears to have an infinite loop somewhere but i cannot find where
   var highest = 0;
+  let firstNumber = 0;
+  let secondNumber = 1;
+  let nextFib = firstNumber + secondNumber;
+  let allFibs = [];
 
+  while (nextFib <= maxFibValue) {
+    firstNumber = secondNumber;
+    secondNumber = nextFib;
+    nextFib = firstNumber + secondNumber;
+    allFibs.push(nextFib);
+
+    for (let i = allFibs.length; i > 0; i--) {
+      if (allFibs[i] > allFibs[i - 1]) {
+        highest = allFibs[i];
+      }
+    }
+  }
   return highest;
 };
 
